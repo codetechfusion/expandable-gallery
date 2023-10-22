@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+
+      body {
+        margin: 0;
+      }
+
+      .flex {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        height: 800px;
+        background-color: black;
+      }
+
+      .box {
+        width: 50px;
+        height: 350px;
+        border-radius: 55px;
+        transition: all 0.4s ease;
+        cursor: pointer;
+        background-image: url('./image\ 1.JPG');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        box-shadow: 0 0 10px rgb(135, 206, 250, 0.5);
+      }
+      
+      .box:nth-child(2) {
+        background-image: url('./image\ 2.JPG');
+      }
+
+      .box:nth-child(3) {
+        background-image: url('./image\ 3.jpg');
+      }
+
+      .box:nth-child(4) {
+        background-image: url('./image\ 4.JPG');
+      }
+
+      .box:nth-child(5) {
+        background-image: url('./image\ 5.JPG');
+      }
+      
+      .active-box {
+        width: 400px;
+        border-radius: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flex">
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
+  </body>
+
+    <script>
+      const boxs = document.querySelectorAll('.box');
+      boxs.forEach((box) => {
+        box.classList.remove('active-box');
+      });
+
+      boxs.forEach((box) => {
+        box.addEventListener('click', function (e) {
+          boxs.forEach((box) => {
+            box.classList.remove('active-box');
+            if (this.classList.contains('active-box')) {
+              this.classList.remove('active-box');
+            }
+          });
+          box.classList.add('active-box');
+        });
+      });
+    </script>
+  </body>
+</html>
+
+<small
+  >Shout out to
+  <a href="https://tanchiwedia.netlify.app" target="_blank">Tanchiwedia</a>
+  for the photos</small
+>
+<style>
+  small {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    color: white;
+    letter-spacing: 1.1px;
+    font-family: sans-serif;
+    & a {
+      color: lightskyblue;
+    }
+  }
+</style>
